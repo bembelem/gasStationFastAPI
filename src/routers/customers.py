@@ -22,13 +22,6 @@ def read_customer_by_id(customer_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Customer not found")
     return customer
 
-@router.get("/phone/{phone_number}", response_model=CustomerResponse)
-def read_customer_by_phone(phone_number: str, db: Session = Depends(get_db)):
-    customer = crud.get_customer_by_phone(db, phone_number)
-    if not customer:
-        raise HTTPException(status_code=404, detail="Customer not found")
-    return customer
-
 @router.post("/", response_model=CustomerResponse, status_code=201)
 def create_customer(customer_data: CustomerCreate, db: Session = Depends(get_db)):
     return crud.create_customer(db, customer_data)

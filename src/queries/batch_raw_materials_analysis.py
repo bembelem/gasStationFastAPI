@@ -26,7 +26,8 @@ def get_batch_raw_materials_analysis(db: Session):
                 String
             ).label("way")
         )
-        .join(DeliveryItem, RawMaterial.id == DeliveryItem.raw_material_id)
+        .select_from(RawMaterial)
+        .join(RawMaterial.delivery_items)
         .join(ProductionBatchRawMaterial, DeliveryItem.id == ProductionBatchRawMaterial.delivery_item_id)
         .join(ProductionBatch, ProductionBatchRawMaterial.production_batch_id == ProductionBatch.id)
         .join(RawMaterialsDelivery, DeliveryItem.delivery_id == RawMaterialsDelivery.id)

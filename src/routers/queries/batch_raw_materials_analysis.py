@@ -7,7 +7,7 @@ from src.queries.batch_raw_materials_analysis import get_batch_raw_materials_ana
 from src.schemas.queries.batch_raw_materials_analysis import BatchRawMaterialsAnalysis
 
 router = APIRouter(
-    prefix="/api",
+    prefix="/api/query",
     tags=["Queries"]
 )
 

@@ -7,7 +7,7 @@ from src.queries.raw_material_efficiency_analysis import get_raw_material_effici
 from src.schemas.queries.raw_material_efficiency_analysis import RawMaterialEfficiencyAnalysis
 
 router = APIRouter(
-    prefix="/api",
+    prefix="/api/query",
     tags=["Queries"]
 )
 

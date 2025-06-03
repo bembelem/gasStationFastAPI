@@ -26,7 +26,7 @@ class FuelPurchaseService:
             operator_id: Optional[int] = None,
             payment_method_id: Optional[int] = None,
             bonus_used: float = 0.0
-    ) -> dict:
+    ):
 
         try:
             # Начинаем транзакцию
@@ -92,7 +92,7 @@ class FuelPurchaseService:
 
     def _deduct_fuel_from_tank(
             self, station_id: int, fuel_type_id: int, volume: float
-    ) -> bool:
+    ):
         rows_affected = (
             self.db.query(StationTank)
             .filter(
@@ -172,7 +172,7 @@ class FuelPurchaseService:
 
     def _update_customer_bonuses(
             self, customer_id: int, total_amount: float
-    ) -> int:
+    ):
         bonus_points = int(total_amount * 0.01)
 
         rows_affected = (

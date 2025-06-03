@@ -9,7 +9,7 @@ from src.queries.fuel_supply_chain_analysis import (
 from src.schemas.queries.fuel_supply_chain_analysis import FuelSupplyChainAnalysis
 
 router = APIRouter(
-    prefix="/api",
+    prefix="/api/query",
     tags=["Queries"]
 )
 

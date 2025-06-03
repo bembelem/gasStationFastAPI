@@ -24,9 +24,10 @@ def get_critical_fuel_levels(db: Session):
             percentage,
             stock_status
         )
-        .join(Station, Station.id == StationTank.station_id)
-        .join(FuelType, StationTank.fuel_type_id == FuelType.id)
-        .filter((StationTank.current_volume / StationTank.capacity * 100) < 30)
+        .select_from(StationTank)
+        .join(StationTank.station)
+        .join(StationTank.fuel_type)
+        .filter(percentage < 30)
         .order_by(percentage)
     )
 

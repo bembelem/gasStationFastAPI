@@ -47,7 +47,6 @@ def get_raw_material_efficiency_analysis(db: Session):
         .subquery()
     )
 
-    # Main query
     query = (
         db.query(
             raw_material_consumption.c.raw_material_name,
